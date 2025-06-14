@@ -1,0 +1,3 @@
+[submodule "ext/xed"]
+	path = ext/xed
+	url = git@github.com:intelxed/xed.git
