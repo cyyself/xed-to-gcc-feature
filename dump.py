@@ -30,6 +30,11 @@ def read_cfg_file(file_path):
                     assert 'ICLASS' in cur_desc, f"Missing 'iclass' in {instr_file}"
                     assert 'EXTENSION' in cur_desc, f"Missing 'extension' in {instr_file}"
                     assert 'CATEGORY' in cur_desc, f"Missing 'category' in {instr_file}"
+                    if 'not64' in cur_desc.get('PATTERN'):
+                        # skip not64 instructions
+                        in_desc = False
+                        cur_desc = dict()
+                        continue
                     next_level = exts
                     if SHOW_EXTENSION:
                         ext = cur_desc['EXTENSION']
