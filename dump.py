@@ -6,8 +6,8 @@ import json
 exts = dict()
 
 SHOW_EXTENSION = True
-SHOW_CATEGORY = True
 SHOW_ISA_SET = True
+SHOW_CATEGORY = True
 SHOW_ICLASS = True
 
 def read_cfg_file(file_path):
@@ -36,16 +36,16 @@ def read_cfg_file(file_path):
                         if ext not in next_level:
                             next_level[ext] = dict()
                         next_level = next_level[ext]
-                    if SHOW_CATEGORY:
-                        cat = cur_desc['CATEGORY']
-                        if cat not in next_level:
-                            next_level[cat] = dict()
-                        next_level = next_level[cat]
                     if SHOW_ISA_SET:
                         isa_set = cur_desc.get('ISA_SET', 'default')
                         if isa_set not in next_level:
                             next_level[isa_set] = dict()
                         next_level = next_level[isa_set]
+                    if SHOW_CATEGORY:
+                        cat = cur_desc['CATEGORY']
+                        if cat not in next_level:
+                            next_level[cat] = dict()
+                        next_level = next_level[cat]
                     if SHOW_ICLASS:
                         iclass = cur_desc['ICLASS']
                         if iclass not in next_level:
